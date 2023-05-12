@@ -50,7 +50,7 @@ class Program
             }
 
             else {
-                Console.WriteLine ("Wrong choice.");
+                Console.WriteLine ("Wrong choice. Please select one of the numbers listed");
             }
 
 
