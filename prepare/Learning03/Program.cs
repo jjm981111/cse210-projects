@@ -29,6 +29,18 @@ public class Fraction {
     public float _top;
     public float _bottom;
 
+    public int GetTop() {
+        return _top;
+    }
+
+    public void SetBottom(int newBottom) {
+        if (newBottom == 0) {
+            _bottom = 1;
+        }else {
+            _bottom = newBottom;
+        }
+    }
+
     public Fraction (float top, float bottom){
         _top = top;
         _bottom = bottom;
