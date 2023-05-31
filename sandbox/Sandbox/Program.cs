@@ -4,50 +4,53 @@ class Program
 {
     static void Main(string[] args)
     {
-        //object
-        //instance
-        var layne = new Person("Layne", "Moseley");
-        var david = new Person("David", "Hasselhoff");
+     var personOne = new Person("luke skywalker");
 
-    
+     var byuiPerson = new BYUIPerson ("obi-wan", "1");
 
-        layne.Talk();
-        david.Talk();
+     var studentOne = new Student ()
     }
+
 }
 
 
-//classification
-class Person {
+// Parent class
+// Super class
+class Person{
+    private string _name;
 
+    protected string _height;
 
-    //attributes
-    //properties
-    string firstName;
-    string lastName;
-
-    //constructor
-    public Person(string fn, string ln) {
-        firstName = fn;
-        lastName = ln;
+    public Person(string name) {
+        _name = name;
     }
 
-    // behaviors
-    public void Breath() {
-        Console.WriteLine("Breathing");
-    }
+}
 
-    public void Walk(){
-        Console.WriteLine("Walking");
-    }
+class BYUIPerson: Person {
+    private string _iNumber;
 
-    public void Talk(){
-        Console.WriteLine($"Hi! Myname is {FullName()}");
+    public BYUIPerson (string name, string iNumber): base(name) {
+        _iNumber = iNumber;
     }
+}
 
-    public string FullName() {
-        return $"{firstName} {lastName}";
+// Sub class
+// Child class
+class Student: BYUIPerson {
+
+    private string _major;
+
+    public Student {string name, string iNumber, string major} base(name, iNumber) {
+        _major = major;
     }
+}
+
+class Teacher: BYUIPerson {
+
+    private string _department;
+
+    public Teacher {}
 
 }
 
