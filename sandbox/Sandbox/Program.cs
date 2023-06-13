@@ -4,53 +4,60 @@ class Program
 {
     static void Main(string[] args)
     {
-     var personOne = new Person("luke skywalker");
 
-     var byuiPerson = new BYUIPerson ("obi-wan", "1");
+        var hourly = new HourlyEmployee(1000, "elon musk", 14);
+        var salary = new SalaryEmployee(90000, "rovert oppenheimer", 14);
 
-     var studentOne = new Student ()
+        var employees = new List<Employee> {hourly, salary};
+
+        foreach (var employee in employees) {
+            Console.WriteLine(employee._name);
+            Console.WriteLine(employee.payPeriodWages());
+        }
     }
-
 }
 
+class Employee {
+    public string _name;
 
-// Parent class
-// Super class
-class Person{
-    private string _name;
+    protected int _payPeriodLength;
 
-    protected string _height;
-
-    public Person(string name) {
+    public Employee(string name, int payPeriodLength) {
         _name = name;
+        _payPeriodLength = payPeriodLength;
+    }
+
+    public virtual double payPeriodWages(){
+        return 0;
+    }
+}
+
+class HourlyEmployee:Employee{
+
+    double _rate;
+
+    public HourlyEmployee(double rate, string name, int payPeriodLength): base(name, payPeriodLength){
+        _rate = rate;
+    }
+
+    public override double payPeriodWages() {
+        return _rate * 8 * _payPeriodLength;
     }
 
 }
 
-class BYUIPerson: Person {
-    private string _iNumber;
+class SalaryEmployee: Employee {
 
-    public BYUIPerson (string name, string iNumber): base(name) {
-        _iNumber = iNumber;
+    double _annualRate;
+
+    public SalaryEmployee(double annualRate, string name, int payPeriodLength): base(name, payPeriodLength){
+        _annualRate = annualRate;
     }
-}
 
-// Sub class
-// Child class
-class Student: BYUIPerson {
-
-    private string _major;
-
-    public Student {string name, string iNumber, string major} base(name, iNumber) {
-        _major = major;
+    public override double payPeriodWages()
+    {
+        return (_payPeriodLength/365.0)* _annualRate;
     }
-}
-
-class Teacher: BYUIPerson {
-
-    private string _department;
-
-    public Teacher {}
 
 }
 
