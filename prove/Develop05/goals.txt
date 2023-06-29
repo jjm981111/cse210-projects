@@ -1,0 +1,3 @@
+80
+SimpleGoal:adf,asdf,50,True
+EternalGoal:qwer,qwer,30
